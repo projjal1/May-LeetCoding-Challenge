@@ -1,0 +1,29 @@
+class StockSpanner:
+
+    def __init__(self):
+        self.arr=[]
+        self.dp=[]
+
+    def next(self, price: int) -> int:
+        if len(self.arr)==0 or price<self.arr[-1]:
+            self.dp.append(1)
+        
+        else:
+            print(price)
+            i=len(self.arr)-1
+            while i>=0 and price>=self.arr[i]:
+                print("here")
+                i-=self.dp[i]
+                
+            self.dp.append(len(self.arr)-i)
+        
+        self.arr.append(price)
+        return self.dp[-1]
+            
+            
+        
+
+
+# Your StockSpanner object will be instantiated and called as such:
+# obj = StockSpanner()
+# param_1 = obj.next(price)
