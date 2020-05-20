@@ -1,0 +1,9 @@
+class Solution:
+    def checkInclusion(self, s1: str, s2: str) -> bool:
+        l=len(s1)
+        for i in range(len(s2)-l+1):
+            word=s2[i:i+l]
+            if sorted(word)==sorted(s1):
+                return True
+            
+        return False
