@@ -1,0 +1,22 @@
+class Solution:
+    def intersect(self,a1,b1,a2,b2):
+        return [max(a1,a2),min(b1,b2)]
+    def intervalIntersection(self, A: List[List[int]], B: List[List[int]]) -> List[List[int]]:
+        output=[]
+        for each in A:
+            x,y=each
+            for var in B:
+                a,b=var
+                
+                if x>b:
+                    continue
+                elif a>y:
+                    break
+                elif x==b:
+                    output.append([b,b])
+                elif a==y:
+                    output.append([a,a])
+                else:
+                    output.append(self.intersect(x,y,a,b))
+                    
+        return output
