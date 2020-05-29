@@ -1,0 +1,14 @@
+class Solution(object):
+    def countBits(self, num):
+        """
+        :type num: int
+        :rtype: List[int]
+        """
+        output=[]
+        
+        for each in range(0,num+1):
+            get_bin=bin(each)[2:]
+            no_of_ones=get_bin.count('1')
+            output.append(no_of_ones)
+            
+        return output
